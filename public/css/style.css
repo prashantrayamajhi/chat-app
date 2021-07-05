@@ -1,7 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+
 * {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: "Roboto", sans-serif;
   box-sizing: border-box;
 }
 
@@ -45,9 +47,9 @@ body {
 .header h1 {
   color: white;
 }
-.header .user {
-  font-size: 1.1rem;
-  color: rgba(0, 0, 0, 0.7);
+.header .online {
+  color: #fff;
+  font-size: 1rem;
 }
 .body {
   flex: 1;

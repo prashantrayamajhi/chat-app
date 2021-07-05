@@ -31,3 +31,8 @@ exports.userLeave = (id) => {
     return users.splice(index, 1)[0];
   }
 };
+
+// total number of users
+exports.totalUsers = () => {
+  return users.length;
+};

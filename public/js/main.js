@@ -2,6 +2,7 @@ const socket = io();
 
 const chatForm = document.getElementById("chat-form");
 const chatMessages = document.querySelector(".body");
+const onlineTag = document.getElementById("online");
 
 // get username room from url
 const { username } = Qs.parse(location.search, {
@@ -11,14 +12,18 @@ const { username } = Qs.parse(location.search, {
 if (!username.trim() || username.trim().length <= 0 || !username) {
   window.location.href = "/";
 }
-
-document.getElementById("user").innerText = username;
+socket.emit("online");
 
 socket.emit("join", username, (error) => {
+  socket.emit("online");
   if (error) {
     alert(error);
     location.href = "/";
   }
+});
+
+socket.on("online", (online) => {
+  onlineTag.innerText = "Users online : " + online;
 });
 
 socket.on("message", ({ username, text, time }) => {

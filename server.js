@@ -7,18 +7,27 @@ const server = http.createServer(app);
 const io = socketio(server);
 
 const { formatMessage } = require("./utils/messages");
-const { userJoin, getCurrentUser, userLeave } = require("./utils/users");
+const {
+  userJoin,
+  getCurrentUser,
+  userLeave,
+  totalUsers,
+} = require("./utils/users");
 
 // set static folder
 app.use(express.static(path.join(__dirname, "./public")));
 
 // run when a client connects
 io.on("connection", (socket) => {
+  socket.on("online", () => {
+    io.emit("online", totalUsers() + 1);
+  });
   socket.on("join", (username, callback) => {
     const { error, user } = userJoin(socket.id, username);
     if (error) {
       return callback(error);
     }
+
     socket.emit(
       "message",
       formatMessage("bot", `Welcome aboard ${user.username} `)
@@ -43,6 +52,7 @@ io.on("connection", (socket) => {
   socket.on("disconnect", () => {
     const user = userLeave(socket.id);
     if (user) {
+      io.emit("online", totalUsers());
       io.emit(
         "message",
         formatMessage("bot", `${user.username} has left the chat`)

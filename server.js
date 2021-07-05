@@ -51,8 +51,8 @@ io.on("connection", (socket) => {
 
   socket.on("disconnect", () => {
     const user = userLeave(socket.id);
+    io.emit("online", totalUsers());
     if (user) {
-      io.emit("online", totalUsers());
       io.emit(
         "message",
         formatMessage("bot", `${user.username} has left the chat`)

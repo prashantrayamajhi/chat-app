@@ -14,7 +14,12 @@ if (!username.trim() || username.trim().length <= 0 || !username) {
 
 document.getElementById("user").innerText = username;
 
-socket.emit("join", username);
+socket.emit("join", username, (error) => {
+  if (error) {
+    alert(error);
+    location.href = "/";
+  }
+});
 
 socket.on("message", ({ username, text, time }) => {
   outputMessage(username, text, time);

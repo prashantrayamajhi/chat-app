@@ -1,0 +1,176 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 100px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+body {
+  height: 100vh;
+  background-color: #b5eaea;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  width: 70%;
+  height: 95vh;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.4);
+  background-color: #08a3b8;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+.header h1 {
+  color: white;
+}
+.header .user {
+  font-size: 1.1rem;
+  color: rgba(0, 0, 0, 0.7);
+}
+.body {
+  flex: 1;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px 30px;
+  overflow-y: scroll;
+}
+
+.message-wrapper .detail.user {
+  text-align: end;
+}
+
+.message-wrapper .detail .username {
+  font-size: 0.9rem;
+}
+.message-wrapper .detail .time {
+  color: lightgray;
+  font-size: 0.9rem;
+}
+.message {
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+  color: rgb(0, 0, 0);
+  width: fit-content;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  margin-top: 0.6rem;
+  max-width: 70%;
+}
+.userMessage {
+  margin-left: auto;
+  background-color: dodgerblue;
+  color: White;
+  max-width: 70%;
+}
+.send form {
+  display: flex;
+}
+form input {
+  border-bottom-left-radius: 10px;
+  flex: 1;
+  height: auto;
+  border: none;
+  outline: none;
+  padding-left: 1rem;
+  font-size: 1rem;
+}
+form button {
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: dodgerblue;
+  color: white;
+  cursor: pointer;
+  padding: 0.8rem 2rem;
+}
+form button:hover {
+  background-color: rgb(54, 142, 231);
+  transition: 0.2s ease;
+}
+
+.button {
+  border-bottom-right-radius: 10px;
+}
+
+.join-container {
+  max-width: 600px;
+  width: 95%;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 1.5rem 2rem 2.5rem;
+}
+
+.join {
+  display: flex;
+  flex-direction: column;
+}
+
+.join h3 {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.join .username {
+  border-radius: 0;
+  font-size: 1.1rem;
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.join button {
+  padding: 0.6rem;
+}
+
+@media (max-width: 800px) {
+  .container {
+    width: 95%;
+  }
+
+  .join-container {
+    padding: 1.5rem 1rem 2.5rem;
+  }
+  .join h3 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .message {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .message {
+    font-size: 0.8rem;
+  }
+}
